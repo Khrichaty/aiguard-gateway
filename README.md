@@ -1,5 +1,8 @@
 # AIGuard Gateway — Level 3 прототип
 
+[![CI](https://github.com/Khrichaty/aiguard-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/Khrichaty/aiguard-gateway/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Технический proof-of-concept middleware между AI-агентами и (1) внешними LLM API,
 (2) production-базами данных. Автоматизированная реализация Access Policy Matrix
 из AIGuard Audit Toolkit (Notion, Level 2) — то, что в Level 2 было ручной таблицей,
@@ -73,6 +76,16 @@ curl -X POST http://localhost:8000/v1/db/query \
   -H "Content-Type: application/json" \
   -H "X-Gateway-Token: tok_support_chatbot_demo" \
   -d '{"table":"investor_balances_view"}'
+```
+
+## Тесты
+
+Все 4 сценария из раздела выше автоматизированы и гоняются в CI при каждом пуше
+(`.github/workflows/ci.yml`).
+
+```bash
+./venv/bin/pip install pytest httpx
+./venv/bin/pytest tests/ -v
 ```
 
 ## Что это прототип, а не продукт

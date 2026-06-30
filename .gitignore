@@ -5,3 +5,5 @@ demo_data/
 server.log
 .env
 *.db
+tests/__pycache__/
+.pytest_cache/

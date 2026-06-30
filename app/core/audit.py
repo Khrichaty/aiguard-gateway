@@ -40,9 +40,6 @@ def _ensure_db():
     conn.close()
 
 
-_ensure_db()
-
-
 @dataclass
 class AuditEntry:
     id: str
@@ -69,6 +66,7 @@ def log_event(
     excerpt: str,
     target: str,
 ) -> AuditEntry:
+    _ensure_db()
     entry = AuditEntry(
         id=str(uuid.uuid4()),
         timestamp=time.time(),
@@ -101,6 +99,7 @@ def log_event(
 
 
 def get_recent_events(limit: int = 50) -> list[dict]:
+    _ensure_db()
     conn = sqlite3.connect(settings.audit_db_path)
     conn.row_factory = sqlite3.Row
     rows = conn.execute(
@@ -116,6 +115,7 @@ def get_recent_events(limit: int = 50) -> list[dict]:
 
 
 def get_stats() -> dict:
+    _ensure_db()
     conn = sqlite3.connect(settings.audit_db_path)
     total = conn.execute("SELECT COUNT(*) FROM audit_log").fetchone()[0]
     by_decision = dict(
