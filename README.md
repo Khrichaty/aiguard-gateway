@@ -47,8 +47,7 @@ python3 -m venv venv
 ./venv/bin/uvicorn app.main:app --reload --port 8000
 ```
 
-Дашборд: http://localhost:8000/v1/audit/dashboard
-Swagger: http://localhost:8000/docs
+
 
 ## Тестовые сценарии
 
