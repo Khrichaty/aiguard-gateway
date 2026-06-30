@@ -1,4 +1,4 @@
-# AIGuard Gateway — Level 3 прототип
+# AIGuard Gateway 
 
 [![CI](https://github.com/Khrichaty/aiguard-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/Khrichaty/aiguard-gateway/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
